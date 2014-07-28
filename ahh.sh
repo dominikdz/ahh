@@ -2,7 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.2"
+VERSION="1.0.3"
 
 function run {
     echo
@@ -15,7 +15,6 @@ function drop-install {
 }
 
 function install {
-    echo "ahh++"
     mkdir ~/.ahh
     if [ ! -e ~/bin ] ; then
 	mkdir ~/bin
@@ -64,6 +63,7 @@ fi
 if [ "$1" = "?" ] ; then
     echo -e "\e[1mahh version:" $VERSION "\e[0m"
     echo "ahh --    remove ahh"
+    echo "ahh ++    update"
     echo "ahh ?     print this help"
     command -v ahh >/dev/null 2>&1 || { 
 	echo "--- hint ---"
