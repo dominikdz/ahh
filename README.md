@@ -59,6 +59,8 @@ ahh plugin_name ?   description of plugin
 Installation
 ====
 
+[run me](ahh/ahh.sh)
+
 1. Make sure you have git and wget
 2. wget download ahh.sh from this page and execute it
 3. or just type in terminal: ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh;bash ./ahh.sh;rm -r ./ahh.sh```
