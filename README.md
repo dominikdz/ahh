@@ -36,8 +36,8 @@ Installation
 ====
 
 1. Make sure you have git and wget
-2. wget downlad ahh.sh from this page and execute it
-3. or ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh | bash; rm ./ahh.sh```
+2. wget download ahh.sh from this page and execute it
+3. or just type in terminal: ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh;bash ./ahh.sh;rm -r ./ahh.sh```
 4. logout & login to apply path changes
 5. type ```ahh ?```
 
