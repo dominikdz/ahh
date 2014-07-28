@@ -11,7 +11,7 @@ if [ ! $AHH_PATH_DEV = "" ] ; then
     AHH_PATH=$AHH_PATH_DEV
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.8"
+VERSION="1.0.9"
 
 function run {
     echo "run here..."
