@@ -1,5 +1,8 @@
 #!/bin/bash - 
 
+_B="\e[1m"
+B_="\e[0m"
+
 AHH_PATH=~/.ahh
 
 #developer mode support
@@ -114,6 +117,11 @@ if [ "$1" = "?" ] ; then
     echo "ahh ++    update"
     echo "ahh ?     print this help"
     echo ""
+    echo "ahh plugin_name     execute plugin"
+    echo "ahh plugin_name ++  update plugin"
+    echo "ahh plugin_name --  remove plugin"
+    echo "ahh plugin_name ?   description of plugin"
+    echo ""
     echo "what is ahh? Ahh gives you quick access to favorite tools"
     echo "what is a plugin? Plugins define way how to access tools"
     echo "ahh does not install in your system, no package manager, no sudo"
@@ -159,6 +167,18 @@ else
     if [ "$2" = "" ] ; then     
 	ensure-installed-plugin 
 	run-plugin
+	stop
+    fi
+    if [ "$2" = "?" ]; then
+	echo -e "plugin name: "$_B$PLUGIN_NAME $B_
+	echo "description:"
+	echo "---"
+	if [ -e $PLUGIN_PATH/README ] ; then 
+	    cat $PLUGIN_PATH/README
+	else	    
+	    echo "ask author of $PLUGIN_NAME for README file"
+	fi
+	echo "---"
 	stop
     fi
 fi
