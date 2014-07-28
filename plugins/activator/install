@@ -1,0 +1,3 @@
+echo "install of plugin activator"
+echo "exit code 1 (error)"
+exit 1
