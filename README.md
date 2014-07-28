@@ -3,16 +3,29 @@ ahh
 
 Ahh is easy... 
 
-It's a tool for quick access to all main building tools for java
+* what is ahh? Ahh gives you quick access to favorite tools.
+* what is a plugin? Plugins define way how to access tools. 
+* What I need? linux, git, bash 
 
-* ahh --    remove ahh
-* ahh ++    update 
-* ahh ?     print this help
+ahh commands
+===
+ahh version: 1.0.25 
+ahh       list plugins
+ahh --    remove ahh
+ahh ++    update
+ahh ?     print this help
 
-*Installation*
+ahh plugin_name     execute plugin
+ahh plugin_name ++  update plugin
+ahh plugin_name --  remove plugin
+ahh plugin_name ?   description of plugin
 
-1. Use your package manager to install git
-2. downlad ahh.sh from this page and execute it
+
+Installation
+====
+
+1. Make sure you have git and wget
+2. wget downlad ahh.sh from this page and execute it
 3. or ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh | bash; rm ./ahh.sh```
 4. logout & login to apply path changes
 5. type ```ahh ?```
