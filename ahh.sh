@@ -2,7 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.5"
+VERSION="1.0.6"
 
 function run {
     echo
@@ -89,9 +89,13 @@ if [ "$1" = "--" ] ; then
 fi
 if [ "$1" = "?" ] ; then
     echo -e "\e[1mahh version:" $VERSION "\e[0m"
+    echo "ahh       list plugins"
     echo "ahh --    remove ahh"
     echo "ahh ++    update"
     echo "ahh ?     print this help"
+    echo ""
+    echo "what is ahh? Ahh gives you quick access to favorite tools"
+    echo "what is a plugin? Plugins define way how to access tools"
     command -v ahh >/dev/null 2>&1 || { 
 	echo "--- hint ---"
 	echo -e "\e[1;31mahh is not on path...\e[0m"
