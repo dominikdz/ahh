@@ -6,4 +6,4 @@ shift 4
 PLUGIN_ARGS=$@
 
 echo $WORK_PATH
-#mvn $@
+~/tomcat8 $@
