@@ -2,7 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.0"
+VERSION="1.0.1"
 
 function run {
     echo
@@ -62,10 +62,16 @@ if [ "$1" = "--" ] ; then
     stop
 fi
 if [ "$1" = "?" ] ; then
-    echo "ahh version:" $VERSION
+    echo -e "\e[1mahh version:" $VERSION "\e[0m"
     echo "ahh --    remove ahh"
     echo "ahh ?     print this help"
-    command -v ahh >/dev/null 2>&1 || { echo "hint... echo ~/bin/ahh >> .bashrc" >&2; stop; }
+    command -v ahh >/dev/null 2>&1 || { 
+	echo "--- hint ---"
+	echo -e "\e[1;31mahh is not on path...\e[0m"
+	echo "  on some systems you need logout or execute following command & logout"
+	echo "  echo PATH=\$PATH:~/bin/ahh >> .bashrc" 
+        stop; 
+    }
     stop
 fi
 ensure-installed
