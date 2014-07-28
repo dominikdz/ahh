@@ -56,14 +56,17 @@ ahh plugin_name --  remove plugin
 ahh plugin_name ?   description of plugin
 ```
 
+Installation (short version)
+====
+Short version:
+1. ```sudo apt-get install git wget bash```
+2. [just save & run me](https://github.com/dominikdz/ahh/raw/master/ahh.sh)
+3. ```ahh ?```
+
 Installation
 ====
-
-[run me](https://github.com/dominikdz/ahh/raw/master/ahh.sh)
-
-1. Make sure you have git and wget
-2. wget download ahh.sh from this page and execute it
-3. or just type in terminal: ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh;bash ./ahh.sh;rm -r ./ahh.sh```
+1. Make sure you have bash, git and wget installed in your system.
+3. Type in terminal: ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh;bash ./ahh.sh;rm -r ./ahh.sh```
 4. logout & login to apply path changes
 5. type ```ahh ?```
 
