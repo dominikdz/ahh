@@ -2,7 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.1"
+VERSION="1.0.2"
 
 function run {
     echo
