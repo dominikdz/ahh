@@ -1,11 +1,17 @@
 #!/bin/bash - 
 
 AHH_PATH=~/.ahh
+
+#developer mode support
+if [ ! $AHH_PATH_DEV = "" ] ; then
+    echo "DEVELOPER MODE: " $AHH_PATH_DEV
+    AHH_PATH=$AHH_PATH_DEV
+fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.6"
+VERSION="1.0.8"
 
 function run {
-    echo
+    echo "run here..."
 }
 
 function drop-install {
@@ -58,7 +64,17 @@ function ensure-installed-plugin {
 	popd > /dev/null
 	stop
     fi
-    $PLUGIN_PATH/install || { echo "plugin install $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+
+    if [ -e $WORK_PATH/$PLUGIN_NAME ] ; then
+ 	:
+    else
+	echo "not installed"
+	mkdir -p $WORK_PATH
+
+    $PLUGIN_PATH/install $AHH_PATH $PLUGIN_NAME $PLUGIN_PATH || { echo "plugin install $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+
+	touch $WORK_PATH/$PLUGIN_NAME
+    fi
 
     popd > /dev/null
 }
@@ -72,6 +88,7 @@ function run-plugin {
 function remove-plugin {
     pushd $PLUGIN_PATH > /dev/null
     $PLUGIN_PATH/remove || { echo "plugin remove $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+    rm $WORK_PATH/$PLUGIN_NAME
     popd > /dev/null
 }
 
@@ -121,6 +138,8 @@ if [ "$1" = "" ] ; then
 else
     PLUGIN_PATH=$AHH_PATH/ahh/plugins/$1
     PLUGIN_NAME=$1
+    WORK_PATH=$AHH_PATH/work
+
     if [ ! -d $PLUGIN_PATH ] ; then
 	echo "!$1, try ahh ++"
 	stop
@@ -128,15 +147,18 @@ else
     #cat $PLUGIN_PATH/url | xargs -IX echo "download from " X
     if [ "$2" = "++" ] ; then     
 	echo "update plugin $PLUGIN_NAME"
+	remove-plugin
+	ensure-installed-plugin 
 	stop
     fi
     if [ "$2" = "--" ] ; then     
 	echo "remove plugin $PLUGIN_NAME"
+	remove-plugin
 	stop
     fi
     if [ "$2" = "" ] ; then     
-	ensure-installed-plugin $PLUGIN_NAME $PLUGIN_PATH
-	run-plugin $PLUGIN_NAME $PLUGIN_PATH
+	ensure-installed-plugin 
+	run-plugin
 	stop
     fi
 fi
