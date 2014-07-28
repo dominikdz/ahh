@@ -7,6 +7,15 @@ Ahh is easy...
 * what is a plugin? Plugins define way how to access tools. 
 * What I need? linux, git, bash 
 
+
+Warnings
+===
+* ahh is a new kid on the block, that means it can be buggy. please, dont' use it on production enviroments.
+* ahh -- removes ahh from system, that means to use it again you will have to download it from this page
+* ahh plugin_name ++/-- may remove plugin folders, please, be aware that most plugins override/remove respective link 
+  from ~/bin/something and ~/.something
+* all plugins assume there's no other copy of software, if you are not sure what version of software you use, try ```which plugin_name``` 
+
 ahh commands
 ===
 ```
@@ -31,9 +40,9 @@ Installation
 4. logout & login to apply path changes
 5. type ```ahh ?```
 
-*How to remove ahh from my system?*
-
-ahh --
-
-
-
+How to remove ahh from my system?
+====
+```
+ahh plugin_name --
+ahh --   remove ahh
+```
