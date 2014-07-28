@@ -52,13 +52,13 @@ function list-plugins {
 }
 
 function ensure-installed-plugin {
-    echo "plugin: " $PLUGIN_NAME
-    echo "path :  " $PLUGIN_PATH
     pushd $PLUGIN_PATH
     if [ ! -e $PLUGIN_PATH/install ] ; then
 	echo "no install script, try ahh ++"
+	popd
 	stop
     fi
+    $PLUGIN_PATH/install
     popd
 }
 
