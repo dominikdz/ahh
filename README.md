@@ -12,9 +12,10 @@ Warnings
 ===
 * ahh is a new kid on the block, that means it can be buggy. please, dont' use it on production enviroments.
 * ahh -- removes ahh from system, that means to use it again you will have to download it from this page
-* ahh plugin_name ++/-- may remove plugin folders, please, be aware that most plugins override/remove respective link 
-  from ~/bin/something and ~/.something
+* ahh plugin_name ++/-- may remove temporary folders used by tools (eg .m2, .lein)
+* please, be aware that most plugins create/override/remove respective link ~/bin/*
 * all plugins assume there's no other copy of software, if you are not sure what version of software you use, try ```which plugin_name``` 
+* dont' try to call ahh++ while being in ~/.ahh folder
 
 ahh commands
 ===
