@@ -9,7 +9,7 @@ Ahh is easy...
 
 ahh commands
 ===
-ahh version: 1.0.25 
+```ahh version: 1.0.25 
 ahh       list plugins
 ahh --    remove ahh
 ahh ++    update
@@ -19,7 +19,7 @@ ahh plugin_name     execute plugin
 ahh plugin_name ++  update plugin
 ahh plugin_name --  remove plugin
 ahh plugin_name ?   description of plugin
-
+```
 
 Installation
 ====
