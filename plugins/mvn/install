@@ -1,0 +1,22 @@
+AHH_PATH=$1
+PLUGIN_NAME=$2
+PLUGIN_PATH=$3
+WORK_PATH=$4
+echo "ahh :" $AHH_PATH
+echo "name:" $PLUGIN_NAME
+echo "path:" $PLUGIN_PATH
+echo "work:" $WORK_PATH
+
+echo "install here..."
+
+cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed"; exit; }
+
+unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
+
+ln -s $WORK_PATH/maven/bin/mvn ~/bin/mvn
+
+ls -R $WORK_PATH
+
+echo "installed..."
+
+

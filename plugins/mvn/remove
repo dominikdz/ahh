@@ -1,0 +1,4 @@
+echo "uninstall mvn"
+rm ~/bin/mvn
+rm -r ~/.m2
+echo "done..."
