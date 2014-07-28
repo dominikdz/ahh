@@ -27,6 +27,8 @@ step 4: test ahh: ahh ?
 step 5: run tomcat8: ahh tomcat8 run
 step 6: open link: http://127.0.0.1:8080
 step 7: stop tomcat8: type CTRL+C to stop tomcat
+step 8: remove tomcat8 from system: ahh tomcat8 --
+step 9: remove ahh from system ahh --
 ```
 
 Warnings
