@@ -68,7 +68,10 @@ if [ "$1" = "?" ] ; then
     command -v ahh >/dev/null 2>&1 || { 
 	echo "--- hint ---"
 	echo -e "\e[1;31mahh is not on path...\e[0m"
-	echo "  on some systems you need logout or execute following command & logout"
+	echo "solutions:"
+	echo "a) type ahh to install"
+	echo "b) logout to refresh path"
+	echo "c) if not working, execute command and return to b)"
 	echo "  echo PATH=\$PATH:~/bin/ahh >> .bashrc" 
         stop; 
     }
