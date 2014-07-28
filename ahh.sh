@@ -13,7 +13,7 @@ if [ ! $AHH_PATH_DEV = "" ] ; then
     echo "export AHH_PATH_DEV="
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.13"
+VERSION="1.0.14"
 
 function run {
     echo "run here..."
@@ -85,8 +85,9 @@ function ensure-installed-plugin {
 }
 
 function run-plugin {
-    pushd $PLUGIN_PATH > /dev/null
-    $PLUGIN_PATH/run || { echo "plugin $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+    #run plugin in current dir
+    pushd . > /dev/null 
+    $PLUGIN_PATH/run $AHH_PATH $PLUGIN_NAME $PLUGIN_PATH $WORK_PATH $PLUGIN_ARGS || { echo "plugin $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
     popd > /dev/null
 }
 
@@ -166,11 +167,6 @@ else
 	remove-plugin
 	stop
     fi
-    if [ "$2" = "" ] ; then     
-	ensure-installed-plugin 
-	run-plugin
-	stop
-    fi
     if [ "$2" = "?" ]; then
 	echo -e "plugin name: "$_B$PLUGIN_NAME $B_
 	echo "description:"
@@ -183,6 +179,16 @@ else
 	echo "---"
 	stop
     fi
+
+    shift
+    PLUGIN_ARGS=$@
+    echo "args=" $PLUGIN_ARGS
+
+	ensure-installed-plugin 
+	run-plugin
+	stop
+
+    echo "no case???"
 fi
 run
 stop
