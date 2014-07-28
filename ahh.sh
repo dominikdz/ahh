@@ -53,6 +53,7 @@ if [ "$1" = "++" ] ; then
     echo "ahh ++"
     drop-install
     ensure-installed
+    stop
 fi
 
 if [ "$1" = "--" ] ; then
@@ -77,6 +78,10 @@ if [ "$1" = "?" ] ; then
     }
     stop
 fi
+
+
+echo -e "\e[1m""available plugins" "\e[0m"
+ls $AHH_PATH/ahh/plugins | xargs -IX echo "-" X
 ensure-installed
 run
 stop
