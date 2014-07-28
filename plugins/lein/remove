@@ -1,4 +1,4 @@
 echo "uninstall lein"
 rm ~/bin/lein
-#rm -r ~/.lein???
+rm -r ~/.lein
 echo "done..."
