@@ -1,0 +1,3 @@
+echo "uninstall ant"
+rm ~/bin/ant
+echo "done..."
