@@ -9,7 +9,8 @@ Ahh is easy...
 
 ahh commands
 ===
-```ahh version: 1.0.25 
+```
+ahh version: 1.0.25 
 ahh       list plugins
 ahh --    remove ahh
 ahh ++    update
