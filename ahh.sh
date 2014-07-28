@@ -2,7 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.4"
+VERSION="1.0.5"
 
 function run {
     echo
@@ -42,8 +42,34 @@ function ensure-installed {
 	#install
 	install
     else
-	echo "ahh!"	
+	echo -e "\e[1mahh!\e[0m"	
     fi
+}
+
+function list-plugins {
+    echo -e "available plugins"
+    ls $AHH_PATH/ahh/plugins | xargs -IX echo "-" X
+}
+
+function ensure-installed-plugin {
+    echo "plugin: " $PLUGIN_NAME
+    echo "path :  " $PLUGIN_PATH
+    pushd $PLUGIN_PATH
+    if [ ! -e $PLUGIN_PATH/install ] ; then
+	echo "no install script, try ahh ++"
+	stop
+    fi
+    popd
+}
+
+function run-plugin {
+    pushd $PLUGIN_PATH
+    $PLUGIN_PATH/run
+    popd
+}
+
+function remove-plugin {
+    $PLUGIN_PATH/remove    
 }
 
 #check for git existence
@@ -79,10 +105,33 @@ if [ "$1" = "?" ] ; then
     stop
 fi
 
-
-echo -e "\e[1m""available plugins" "\e[0m"
-ls $AHH_PATH/ahh/plugins | xargs -IX echo "-" X
 ensure-installed
+
+if [ "$1" = "" ] ; then
+    list-plugins
+    stop
+else
+    PLUGIN_PATH=$AHH_PATH/ahh/plugins/$1
+    PLUGIN_NAME=$1
+    if [ ! -d $PLUGIN_PATH ] ; then
+	echo "!$1, try ahh ++"
+	stop
+    fi
+    cat $PLUGIN_PATH/url | xargs -IX echo "download from " X
+    if [ "$2" = "++" ] ; then     
+	echo "update plugin $PLUGIN_NAME"
+	stop
+    fi
+    if [ "$2" = "--" ] ; then     
+	echo "remove plugin $PLUGIN_NAME"
+	stop
+    fi
+    if [ "$2" = "" ] ; then     
+	ensure-installed-plugin $PLUGIN_NAME $PLUGIN_PATH
+	run-plugin $PLUGIN_NAME $PLUGIN_PATH
+	stop
+    fi
+fi
 run
 stop
 
