@@ -9,9 +9,11 @@ AHH_PATH=~/.ahh
 if [ ! $AHH_PATH_DEV = "" ] ; then
     echo "DEVELOPER MODE: " $AHH_PATH_DEV
     AHH_PATH=$AHH_PATH_DEV
+    echo "to remove developer mode type:"
+    echo "export AHH_PATH_DEV="
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.9"
+VERSION="1.0.10"
 
 function run {
     echo "run here..."
@@ -74,7 +76,7 @@ function ensure-installed-plugin {
 	echo "not installed"
 	mkdir -p $WORK_PATH
 
-    $PLUGIN_PATH/install $AHH_PATH $PLUGIN_NAME $PLUGIN_PATH || { echo "plugin install $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+    $PLUGIN_PATH/install $AHH_PATH $PLUGIN_NAME $PLUGIN_PATH $WORK_PATH || { echo "plugin install $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
 
 	touch $WORK_PATH/$PLUGIN_NAME
     fi
@@ -91,7 +93,7 @@ function run-plugin {
 function remove-plugin {
     pushd $PLUGIN_PATH > /dev/null
     $PLUGIN_PATH/remove || { echo "plugin remove $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
-    rm $WORK_PATH/$PLUGIN_NAME
+    rm -R $WORK_PATH/$PLUGIN_NAME
     popd > /dev/null
 }
 
@@ -146,7 +148,7 @@ if [ "$1" = "" ] ; then
 else
     PLUGIN_PATH=$AHH_PATH/ahh/plugins/$1
     PLUGIN_NAME=$1
-    WORK_PATH=$AHH_PATH/work
+    WORK_PATH=$AHH_PATH/work/$PLUGIN_NAME
 
     if [ ! -d $PLUGIN_PATH ] ; then
 	echo "!$1, try ahh ++"
