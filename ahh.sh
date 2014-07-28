@@ -13,7 +13,7 @@ if [ ! $AHH_PATH_DEV = "" ] ; then
     echo "export AHH_PATH_DEV="
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.21"
+VERSION="1.0.23"
 
 function run {
     echo "run here..."

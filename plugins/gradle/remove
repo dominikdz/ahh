@@ -1,0 +1,3 @@
+echo "uninstall gradle"
+rm ~/bin/gradle
+echo "done..."
