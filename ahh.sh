@@ -96,6 +96,7 @@ if [ "$1" = "?" ] ; then
     echo ""
     echo "what is ahh? Ahh gives you quick access to favorite tools"
     echo "what is a plugin? Plugins define way how to access tools"
+    echo "ahh does not install in your system, no package manager, no sudo"
     command -v ahh >/dev/null 2>&1 || { 
 	echo "--- hint ---"
 	echo -e "\e[1;31mahh is not on path...\e[0m"
