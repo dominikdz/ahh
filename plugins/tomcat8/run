@@ -1,0 +1,9 @@
+AHH_PATH=$1
+PLUGIN_NAME=$2
+PLUGIN_PATH=$3
+WORK_PATH=$4
+shift 4
+PLUGIN_ARGS=$@
+
+echo $WORK_PATH
+#mvn $@

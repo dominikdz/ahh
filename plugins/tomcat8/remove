@@ -1,0 +1,3 @@
+echo "uninstall tomcat8"
+rm ~/bin/tomcat8
+echo "done..."
