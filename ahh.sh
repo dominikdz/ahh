@@ -2,6 +2,7 @@
 
 AHH_PATH=~/.ahh
 REPO_PATH=https://github.com/dominikdz/ahh.git
+VERSION="1.0.0"
 
 function run {
     echo
@@ -61,6 +62,7 @@ if [ "$1" = "--" ] ; then
     stop
 fi
 if [ "$1" = "?" ] ; then
+    echo "ahh version:" $VERSION
     echo "ahh --    remove ahh"
     echo "ahh ?     print this help"
     command -v ahh >/dev/null 2>&1 || { echo "hint... echo ~/bin/ahh >> .bashrc" >&2; stop; }
