@@ -20,7 +20,7 @@ function install {
 	mkdir ~/bin
     fi
 
-    pushd $AHH_PATH
+    pushd $AHH_PATH > /dev/null
     git clone -q $REPO_PATH
     popd
 
@@ -52,24 +52,27 @@ function list-plugins {
 }
 
 function ensure-installed-plugin {
-    pushd $PLUGIN_PATH
+    pushd $PLUGIN_PATH > /dev/null
     if [ ! -e $PLUGIN_PATH/install ] ; then
 	echo "no install script, try ahh ++"
-	popd
+	popd > /dev/null
 	stop
     fi
-    $PLUGIN_PATH/install
-    popd
+    $PLUGIN_PATH/install || { echo "plugin install $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+
+    popd > /dev/null
 }
 
 function run-plugin {
-    pushd $PLUGIN_PATH
-    $PLUGIN_PATH/run
-    popd
+    pushd $PLUGIN_PATH > /dev/null
+    $PLUGIN_PATH/run || { echo "plugin $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+    popd > /dev/null
 }
 
 function remove-plugin {
-    $PLUGIN_PATH/remove    
+    pushd $PLUGIN_PATH > /dev/null
+    $PLUGIN_PATH/remove || { echo "plugin remove $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
+    popd > /dev/null
 }
 
 #check for git existence
@@ -122,7 +125,7 @@ else
 	echo "!$1, try ahh ++"
 	stop
     fi
-    cat $PLUGIN_PATH/url | xargs -IX echo "download from " X
+    #cat $PLUGIN_PATH/url | xargs -IX echo "download from " X
     if [ "$2" = "++" ] ; then     
 	echo "update plugin $PLUGIN_NAME"
 	stop
