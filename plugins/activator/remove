@@ -1,3 +1,4 @@
 echo "uninstall activator"
 rm ~/bin/activator
+rm ~/.activator
 echo "done..."
