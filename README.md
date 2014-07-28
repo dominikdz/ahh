@@ -9,9 +9,11 @@ It's a tool for quick access to all main building tools for java
 * ahh ++    update 
 * ahh ?     print this help
 
-*Installation *
+*Installation*
 
-1. ```wget https://github.com/dominikdz/ahh/ahh.sh | bash; rm ./ahh.sh```
+* Use your package manager to install git
+
+* ```wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh | bash; rm ./ahh.sh```
 2. logout & login to apply path changes
 3. ```ahh ?```
 
