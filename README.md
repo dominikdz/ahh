@@ -47,3 +47,7 @@ How to remove ahh from my system?
 ahh plugin_name --
 ahh --   remove ahh
 ```
+
+Where does ahh store files?
+====
+~/.ahh (it's hidden folder in your home directory)
