@@ -1,4 +1,2 @@
-echo "run of plugin activator"
-echo "exit code 1 (error)"
-echo "plugin name $PLUGIN_NAME"
-exit 1
+echo "no pass args for now"
+./sbt 
