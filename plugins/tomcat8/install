@@ -13,6 +13,7 @@ cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed
 
 unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
+chmod +x $WORK_PATH/apache-tomcat-8.0.9/bin/catalina.sh
 ln -s $WORK_PATH/apache-tomcat-8.0.9/bin/catalina.sh ~/bin/tomcat8
 
 ls -R $WORK_PATH
