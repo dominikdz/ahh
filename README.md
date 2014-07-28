@@ -5,8 +5,29 @@ Ahh is easy...
 
 * what is ahh? Ahh gives you quick access to favorite tools.
 * what is a plugin? Plugins define way how to access tools. 
-* What I need? linux, git, bash 
+* What I need? linux, git, wget, bash 
 
+What I can do with ahh?
+===
+```
+Sometimes, when you work, you need to take last version of tool, download, install it and run.
+Ahh will do it for you.
+```
+
+Getting started
+===
+```
+Please do read Warning section - it's really important.
+
+I assume you have Debian-like system
+step 1: prepare system: sudo apt-get install bash git wget
+step 2: install ahh: cd ~/;wget https://raw.githubusercontent.com/dominikdz/ahh/master/ahh.sh;bash ./ahh.sh;rm -r ./ahh.sh
+step 3: logout & logon
+step 4: test ahh: ahh ?
+step 5: run tomcat8: ahh tomcat8 run
+step 6: open link: http://127.0.0.1:8080
+step 7: stop tomcat8: type CTRL+C to stop tomcat
+```
 
 Warnings
 ===
@@ -16,6 +37,7 @@ Warnings
 * please, be aware that most plugins create/override/remove respective link ~/bin/*
 * all plugins assume there's no other copy of software, if you are not sure what version of software you use, try ```which plugin_name``` 
 * dont' try to call ahh++ while being in ~/.ahh folder
+* dont' run ahh as sudo, or root
 
 ahh commands
 ===
