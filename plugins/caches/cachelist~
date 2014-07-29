@@ -1,0 +1,4 @@
+rm -rf ~/.sbt
+rm -rf ~/.m2
+rm -rf ~/.ivy2
+rm -rf ~/.gradle

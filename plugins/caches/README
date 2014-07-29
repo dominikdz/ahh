@@ -1,0 +1,3 @@
+Tool for cleaning caches
+clean: ~/.m2, ~/.ivy, ~/.sbt
+

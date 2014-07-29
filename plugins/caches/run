@@ -1,0 +1,20 @@
+#!/bin/bash
+AHH_PATH=$1
+PLUGIN_NAME=$2
+PLUGIN_PATH=$3
+WORK_PATH=$4
+shift 4
+PLUGIN_ARGS=$@
+
+if [ "$1" = "clean" ] ; then
+    rm -rf ~/.sbt
+    rm -rf ~/.m2
+    rm -rf ~/.ivy2
+    rm -rf ~/.gradle
+fi
+if [ "$1" = "" ] ; then
+    echo "type caches clean to remove caches"   
+    echo "sbt, m2, ivy, gradle"
+fi
+
+
