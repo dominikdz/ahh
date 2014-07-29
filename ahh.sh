@@ -98,8 +98,27 @@ function remove-plugin {
     popd > /dev/null
 }
 
+_ahh()
+{
+   COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=`ahh ?plugins`
+
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+}
+function install-ac {
+    complete -F _ahh ahh
+}
+
 #check for git existence
 command -v git >/dev/null 2>&1 || { echo "ahh needs git" >&2; stop; }
+
+if [ "$1" = "?ac" ] ; then 
+    install-ac
+    exit
+fi
 
 if [ "$1" = "?plugins" ] ; then 
     ls $AHH_PATH/ahh/plugins

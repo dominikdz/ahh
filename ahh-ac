@@ -1,0 +1,11 @@
+_ahh()
+{
+   COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts=`ahh ?plugins`
+
+        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+        return 0
+}
+complete -F _ahh ahh
