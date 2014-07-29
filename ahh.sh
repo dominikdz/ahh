@@ -13,7 +13,7 @@ if [ ! $AHH_PATH_DEV = "" ] ; then
     echo "export AHH_PATH_DEV="
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.26"
+VERSION="1.0.27"
 
 function run {
     echo "run here..."
@@ -98,27 +98,12 @@ function remove-plugin {
     popd > /dev/null
 }
 
-_ahh()
-{
-   COMPREPLY=()
-    cur="${COMP_WORDS[COMP_CWORD]}"
-    prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts=`ahh ?plugins`
-    echo "????"
-
-        COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-        return 0
-}
-function install-ac {
-    complete -F _ahh ahh
-}
-
 #check for git existence
 command -v git >/dev/null 2>&1 || { echo "ahh needs git" >&2; stop; }
 
-if [ "$1" = "?ac" ] ; then 
-    echo "install ac"
-    install-ac
+#install autocomplete (do it once)
+if [ "$1" = "?install-ac" ] ; then 
+    echo ". $AHH_PATH/ahh/ahh-ac >> ~/.bashrc"
     exit
 fi
 
