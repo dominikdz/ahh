@@ -104,6 +104,7 @@ _ahh()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
     opts=`ahh ?plugins`
+    echo "????"
 
         COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
         return 0
@@ -116,6 +117,7 @@ function install-ac {
 command -v git >/dev/null 2>&1 || { echo "ahh needs git" >&2; stop; }
 
 if [ "$1" = "?ac" ] ; then 
+    echo "install ac"
     install-ac
     exit
 fi
