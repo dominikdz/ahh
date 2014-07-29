@@ -103,7 +103,7 @@ command -v git >/dev/null 2>&1 || { echo "ahh needs git" >&2; stop; }
 
 #install autocomplete (do it once)
 if [ "$1" = "?install-ac" ] ; then 
-    echo ". $AHH_PATH/ahh/ahh-ac >> ~/.bashrc"
+    echo ". $AHH_PATH/ahh/ahh-ac" >> ~/.bashrc
     exit
 fi
 
