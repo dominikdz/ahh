@@ -135,6 +135,8 @@ if [ "$1" = "?" ] ; then
     echo "ahh plugin_name --  remove plugin"
     echo "ahh plugin_name ?   description of plugin"
     echo ""
+    echo "ahh ?install-ac     install autocompletion in .bashrc"
+    echo ""
     echo "what is ahh? Ahh gives you quick access to favorite tools"
     echo "what is a plugin? Plugins define way how to access tools"
     echo "ahh does not install in your system, no package manager, no sudo"
