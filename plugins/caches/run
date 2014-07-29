@@ -9,6 +9,7 @@ PLUGIN_ARGS=$@
 if [ "$1" = "clean" ] ; then
     rm -rf ~/.sbt
     rm -rf ~/.m2
+    rm -rf ~/.lein
     rm -rf ~/.ivy2
     rm -rf ~/.gradle
 fi
