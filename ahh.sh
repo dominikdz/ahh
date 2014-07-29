@@ -101,6 +101,10 @@ function remove-plugin {
 #check for git existence
 command -v git >/dev/null 2>&1 || { echo "ahh needs git" >&2; stop; }
 
+if [ "$1" = "?plugins" ] ; then 
+    ls $AHH_PATH/ahh/plugins
+    exit
+fi
 if [ "$1" = "++" ] ; then
     echo "ahh ++"
     drop-install
@@ -144,7 +148,7 @@ fi
 ensure-installed
 
 if [ "$1" = "" ] ; then
-    list-plugins
+    ls -C 
     stop
 else
     PLUGIN_PATH=$AHH_PATH/ahh/plugins/$1
