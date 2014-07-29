@@ -5,7 +5,7 @@ WORK_PATH=$4
 shift 4
 PLUGIN_ARGS=$@
 
-echo $WORK_PATH
+
 export JETTY_HOME=$WORK_PATH/jetty-distribution-9.2.1.v20140609
 echo "JETTY_HOME=" $JETTY_HOME
 jetty9 $@

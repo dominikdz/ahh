@@ -13,7 +13,7 @@ if [ ! $AHH_PATH_DEV = "" ] ; then
     echo "export AHH_PATH_DEV="
 fi
 REPO_PATH=https://github.com/dominikdz/ahh.git
-VERSION="1.0.25"
+VERSION="1.0.26"
 
 function run {
     echo "run here..."
@@ -182,7 +182,7 @@ else
 
     shift
     PLUGIN_ARGS=$@
-    echo "args=" $PLUGIN_ARGS
+    #echo "args=" $PLUGIN_ARGS
 
 	ensure-installed-plugin 
 	run-plugin

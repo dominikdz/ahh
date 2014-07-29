@@ -5,6 +5,6 @@ WORK_PATH=$4
 shift 4
 PLUGIN_ARGS=$@
 
-echo $WORK_PATH
+
 #gradlew here?
 gradle $@
