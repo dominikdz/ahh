@@ -1,0 +1,19 @@
+AHH_PATH=$1
+PLUGIN_NAME=$2
+PLUGIN_PATH=$3
+WORK_PATH=$4
+
+echo "install here..."
+
+cat $PLUGIN_PATH/url | xargs -IX curl -# -L --cookie "oraclelicense=accept-securebackup-cookie" -o $WORK_PATH/arch.tar.gz X || { echo "failed"; exit; }
+
+tar -xvf $WORK_PATH/arch.tar.gz -d $WORK_PATH/ || { echo "failed"; exit; }
+
+ln -s $WORK_PATH/jdk1.8.0_11/bin/java ~/bin/java
+ln -s $WORK_PATH/jdk1.8.0_11/bin/javac ~/bin/javac
+
+ls -R $WORK_PATH
+
+echo "installed..."
+
+
