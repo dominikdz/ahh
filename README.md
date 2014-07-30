@@ -5,7 +5,7 @@ Ahh is easy...
 
 * what is ahh? Ahh gives you quick access to favorite tools.
 * what is a plugin? Plugins define way how to access tools. 
-* What I need? linux, git, wget, bash 
+* What I need? linux, git, wget, bash and java
 
 What I can do with ahh?
 ===
@@ -44,7 +44,6 @@ Warnings
 ahh commands
 ===
 ```
-ahh version: 1.0.25 
 ahh       list plugins
 ahh --    remove ahh
 ahh ++    update
