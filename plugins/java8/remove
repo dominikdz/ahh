@@ -1,0 +1,4 @@
+echo "uninstall java"
+rm ~/bin/java
+rm ~/bin/javac
+echo "done..."

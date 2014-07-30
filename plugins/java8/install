@@ -1,0 +1,23 @@
+AHH_PATH=$1
+PLUGIN_NAME=$2
+PLUGIN_PATH=$3
+WORK_PATH=$4
+echo "ahh :" $AHH_PATH
+echo "name:" $PLUGIN_NAME
+echo "path:" $PLUGIN_PATH
+echo "work:" $WORK_PATH
+
+echo "install here..."
+
+cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.tar.gz || { echo "failed"; exit; }
+
+tar -xvf $WORK_PATH/arch.tar.gz -d $WORK_PATH/ || { echo "failed"; exit; }
+
+ln -s $WORK_PATH/jdk1.8.0_11/bin/java ~/bin/java
+ln -s $WORK_PATH/jdk1.8.0_11/bin/javac ~/bin/javac
+
+ls -R $WORK_PATH
+
+echo "installed..."
+
+
