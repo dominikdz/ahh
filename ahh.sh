@@ -91,6 +91,11 @@ function run-plugin {
     popd > /dev/null
 }
 
+function remove-plugin-installed {
+    echo "non clean uninstall"
+    rm $WORK_PATH/$PLUGIN_NAME || { echo "no previous version found"; } 
+}
+
 function remove-plugin {
     pushd $PLUGIN_PATH > /dev/null
     $PLUGIN_PATH/remove || { echo "plugin remove $PLUGIN_NAME failed"; popd > /dev/null; stop; } 
@@ -171,7 +176,8 @@ else
     #cat $PLUGIN_PATH/url | xargs -IX echo "download from " X
     if [ "$2" = "++" ] ; then     
 	echo "update plugin $PLUGIN_NAME"
-	remove-plugin
+	#remove-plugin
+	remove-plugin-installed
 	ensure-installed-plugin 
 	stop
     fi
