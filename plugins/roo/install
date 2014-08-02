@@ -13,7 +13,7 @@ cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed
 
 unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
-ln -s $WORK_PATH/sbt/bin/roo ~/bin/roo
+ln -s $WORK_PATH/roo/bin/roo ~/bin/roo
 
 ls -R $WORK_PATH
 

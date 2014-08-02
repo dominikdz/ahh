@@ -1,4 +1,0 @@
-echo "uninstall sbt"
-rm ~/bin/sbt
-rm -r ~/.sbt
-echo "done...
