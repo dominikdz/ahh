@@ -1,4 +1,3 @@
 echo "uninstall roo"
 rm ~/bin/roo
-rm -r ~/.roo
 echo "done..."
