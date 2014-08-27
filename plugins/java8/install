@@ -9,8 +9,8 @@ cat $PLUGIN_PATH/url | xargs -IX curl -z -# -L --cookie "oraclelicense=accept-se
 
 tar -xvf $WORK_PATH/arch.tar.gz -C $WORK_PATH/ || { echo "failed"; exit; }
 
-ln -s $WORK_PATH/jdk1.8.0_11/bin/java ~/bin/java
-ln -s $WORK_PATH/jdk1.8.0_11/bin/javac ~/bin/javac
+ln -s $WORK_PATH/jdk1.8.0_20/bin/java ~/bin/java
+ln -s $WORK_PATH/jdk1.8.0_20/bin/javac ~/bin/javac
 
 ls -R $WORK_PATH
 
