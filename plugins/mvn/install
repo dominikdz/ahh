@@ -13,7 +13,7 @@ cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed
 
 unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
-ln -s $WORK_PATH/apache-maven-3.2.2/bin/mvn ~/bin/mvn
+ln -s $WORK_PATH/apache-maven-3.2.5/bin/mvn ~/bin/mvn
 
 ls -R $WORK_PATH
 
