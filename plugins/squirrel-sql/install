@@ -11,9 +11,9 @@ echo "install here..."
 
 cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed"; exit; }
 
-unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
+#unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
-echo java -jar $WORK_PATH/squirrel-sql-3.6-standard.jar > ~/bin/$PLUGIN_NAME
+echo java -jar $WORK_PATH/arch.zip > ~/bin/$PLUGIN_NAME
 chmod +x ~/bin/$PLUGIN_NAME
 ls -R $WORK_PATH
 
