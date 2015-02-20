@@ -13,10 +13,12 @@ cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed
 
 #unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
-echo java -jar $WORK_PATH/arch.zip > ~/bin/$PLUGIN_NAME
-chmod +x ~/bin/$PLUGIN_NAME
+cat script.xml  | sed "s/PLUGIN_PATH/$WORK_PATH/app" > $WORK_PATH/script.xml
+
+chmod +x $WORK_PATH/arch.zip
+java -jar $WORK_PATH/arch.zip $WORK_PATH/script.xml
+
 ls -R $WORK_PATH
 
 echo "installed..."
-
 
