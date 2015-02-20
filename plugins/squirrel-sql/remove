@@ -1,0 +1,3 @@
+echo "uninstall squirrel-sql"
+rm ~/bin/squirrel-sql
+echo "done..."
