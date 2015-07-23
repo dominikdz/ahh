@@ -13,7 +13,7 @@ cat $PLUGIN_PATH/url | xargs -IX wget X -O $WORK_PATH/arch.zip || { echo "failed
 
 unzip -o $WORK_PATH/arch.zip -d $WORK_PATH/ || { echo "failed"; exit; }
 
-ln -s $WORK_PATH/activator-1.2.3-minimal/activator ~/bin/activator
+ln -s $WORK_PATH/activator-1.3.5-minimal/activator ~/bin/activator
 
 ls -R $WORK_PATH
 
